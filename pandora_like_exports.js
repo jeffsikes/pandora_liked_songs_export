@@ -1,5 +1,20 @@
 let lastScrollPosition = 0;
 const jsonCollection = [];
+let totalThumbsUp = 0;
+let processedThumbsUp = 0;
+let progressEnabled = false;
+
+// Retrieve the total number of thumbs up if it exists
+function getTotalThumbsUp() {
+  const thumbsUpElement = document.querySelector('[data-qa="thumbs_up_link"] .ProfileNav__count');
+  if (thumbsUpElement) {
+    totalThumbsUp = parseInt(thumbsUpElement.innerText, 10);
+    console.log(`Total Thumbs Up: ${totalThumbsUp}`);
+    progressEnabled = true;
+  } else {
+    console.log("Total Thumbs Up element not found. Progress bar will be disabled.");
+  }
+}
 
 // Use a debounced scroll event listener
 let scrollTimeout;
@@ -46,7 +61,8 @@ function findAllLikedSongs() {
       };
 
       jsonCollection.push(jsonItem);
-      console.log(jsonCollection.length);
+      processedThumbsUp++;
+      updateProgress();
     }
   });
 }
@@ -55,5 +71,18 @@ function notInJsonCollection(pandoraTrackUri) {
   return !jsonCollection.some((item) => item["pandoraTrackUri"] === pandoraTrackUri);
 }
 
-// Initial call to start the scrolling process
+// Update the progress in the console
+function updateProgress() {
+  if (progressEnabled) {
+    const progress = Math.min((processedThumbsUp / totalThumbsUp) * 100, 100).toFixed(2);
+    console.clear();
+    console.log(`%cProgress: ${progress}% Completed (${processedThumbsUp}/${totalThumbsUp})`, "color: white; background-color: blue; padding: 2px;");
+  } else {
+    console.clear();
+    console.log(`%cProcessed ${processedThumbsUp} items.`, "color: white; background-color: blue; padding: 2px;");
+  }
+}
+
+// Initial call to get the total number of thumbs up and start the scrolling process
+getTotalThumbsUp();
 scrollDown();
