@@ -4,7 +4,7 @@ Pandora Music currently has no way to export your personal music preferences. Th
 
 To get around these limitations, I created a website scraper to pull your liked (thumbed up) music into a JSON object that can be saved to you local filesystem.
 
-## Working as of 11/20/2023
+## Working as of 07/09/2024
 If Pandora changes just the slightest thing about thier HTML class structure, this script will break. There are other similar scripts around that no longer work because of similar HTML structure changes.
 
 ## Step 1 - Open Pandora in a desktop web browser
