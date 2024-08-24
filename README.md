@@ -4,8 +4,10 @@ Pandora Music currently has no way to export your personal music preferences. Th
 
 To get around these limitations, I created a website scraper to pull your liked (thumbed up) music into a JSON object that can be saved to you local filesystem.
 
-## Working as of 07/09/2024
-If Pandora changes just the slightest thing about thier HTML class structure, this script will break. There are other similar scripts around that no longer work because of similar HTML structure changes.
+The results will be categorized by station name.
+
+## Working as of 08/24/2024
+If Pandora changes just the slightest thing about their HTML class structure, this script will break. There are other similar scripts around that no longer work because of similar HTML structure changes.
 
 ## Step 1 - Open Pandora in a desktop web browser
 I used Firefox and it worked well. Here's the URL you're looking for (you must be logged into Pandora).
@@ -26,13 +28,20 @@ Once opened, you're going to want the "Console" tab.
 ## Step 4 - Copy and paste the script into the Console tab.
 Copy the script in full and paste it into the console tab. Then click Run.
 
+A prompt will appear, remding you to be at the top of the page before running the script.
+
+A second prompt will ask you at what speed you'd like to run the script. Type the word "FAST" or "SLOW", or just leave it at "NORMAL".
+
+* NORMAL is selected by default
+* If you have a fast connection and Pandora is playing nice, choose FAST if you're feeling lucky! 
+* If you're having difficulties with the script stopping before your full list is completed, try setting it to SLOW instead.
+
 This will take awhile to run. You should see a counter in the console counting up as it adds the new records to the array.
 
-## Step 5 - Copy the json obect to a new file.
-You should see some text that states "Here is your collection of liked songs in JSON format".
-Right click the line below that and choose "Copy object".
-Paste the contents into a file and save it locally.
+## Step 5 - Find the downloaded file.
+You should see some text that states "JSON file has been saved to your downloads folder.".
+A new file should be found in your downlaods folder titled "liked_songs_grouped_by_station.json"
 
-You now have a file that contains the name, artist, channel and pandora links to all your thumbed up content. 
+You now have a file that contains the name, artist, channel and pandora links to all your thumbed up content, grouped by station. 
 
 Have fun!
