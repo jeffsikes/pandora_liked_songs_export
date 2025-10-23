@@ -6,7 +6,7 @@ To get around these limitations, I created a website scraper to pull your liked 
 
 The results will be categorized by station name.
 
-## Working as of 08/24/2024
+## Working as of 10/22/2025
 If Pandora changes just the slightest thing about their HTML class structure, this script will break. There are other similar scripts around that no longer work because of similar HTML structure changes.
 
 ## Step 1 - Open Pandora in a desktop web browser
